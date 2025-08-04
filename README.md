@@ -787,6 +787,76 @@ arr = [12, 34, 56, 1, 67, 100, 47, 99]
 print(linear_search(arr, 67))  # Output: 4
 
 ```
+
+# Stack Implementation Using Arrays
+
+This notebook covers the implementation of a Stack data structure using a fixed-size array in Python. It includes fundamental stack operations such as **push**, **pop**, and **traverse**, demonstrating how a stack can be managed manually without relying solely on Python's built-in list methods.
+
+---
+
+## What is a Stack?
+
+A **stack** is a linear data structure which follows the **Last In First Out (LIFO)** principle. The last element added is the first one to be removed.
+
+---
+
+## Stack Operations Implemented
+
+### 1. Push Operation
+Adds an element to the top of the stack if there is space.  
+Returns `"Overflow"` if the stack is full.
+
+### 2. Pop Operation
+Removes the top element from the stack and returns it.  
+Returns `"Empty"` if the stack is empty.
+
+### 3. Traverse Operation
+Prints all elements currently in the stack from bottom to top.  
+Returns `"Empty"` if the stack is empty.
+
+---
+
+## Implementation Details
+
+The stack is implemented using a fixed-size list (array):
+
+- `self.__stack` is the internal array holding stack elements.
+- `self.top` keeps track of the index of the current top element.
+- Initially, `self.top` is `-1` indicating the stack is empty.
+- On **push**, `top` is incremented, and the new value is inserted.
+- On **pop**, the value at `top` is returned and `top` is decremented.
+
+---
+
+## Example Usage
+
+```python
+s = Stack(3)
+
+print(s._Stack__stack)  # Output: [None, None, None]
+
+# Push elements
+print(s.push(4))  # None (successful push)
+print(s.push(5))  # None
+print(s.push(6))  # None
+print(s.push(7))  # Output: "Overflow" since stack is full
+
+print(s._Stack__stack)  # Output: [4, 5, 6]
+
+# Pop elements
+s.pop()  # Output: 6
+s.pop()  # Output: 5
+s.pop()  # Output: 4
+s.pop()  # Output: "Empty" since stack is empty
+
+# Traverse stack
+s.traverse()  # Output: "Empty"
+
+# Push again and traverse
+s.push(5)
+s.traverse()  # Output: 5 
+```
+
 ## 🎉 That's it!
 
 Thanks for checking out this repository! Feel free to explore, modify, and experiment with the notebooks. Happy coding and data structuring!

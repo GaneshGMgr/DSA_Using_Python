@@ -857,6 +857,77 @@ s.push(5)
 s.traverse()  # Output: 5 
 ```
 
-## 🎉 That's it!
+# Stack Implementation Using Linked Lists
 
-Thanks for checking out this repository! Feel free to explore, modify, and experiment with the notebooks. Happy coding and data structuring!
+This notebook demonstrates how to implement a Stack data structure using a singly linked list in Python. It covers standard stack operations along with practical example problems like string reversal, text editor undo/redo, balanced parentheses, and the celebrity problem.
+
+---
+
+## What is a Stack?
+
+A **stack** is a linear data structure that follows **Last In First Out (LIFO)** behavior — the most recently added element is the first to be removed.
+
+---
+
+## Implementation Overview
+
+- **Node class:** Represents each element in the stack, containing `data` and a reference `next` to the next node.
+- **Stack class:** Maintains a reference to the top node.
+- Operations are performed by manipulating the linked nodes.
+
+---
+
+## Stack Operations
+
+### 1. `push(value)`
+Adds a new value to the top of the stack.
+
+### 2. `pop()`
+Removes and returns the top element. Returns `"Stack Empty"` if empty.
+
+### 3. `peek()`
+Returns the top element without removing it. Returns `"Stack Empty"` if empty.
+
+### 4. `traverse()`
+Prints all elements from top to bottom.
+
+### 5. `is_empty()`
+Returns `True` if the stack is empty, else `False`.
+
+### 6. `size()`
+Returns the number of elements currently in the stack.
+
+---
+
+## Example Usage
+
+```python
+s = Stack()
+
+# Check if empty
+print(s.is_empty())  # True
+
+# Push elements
+s.push(2)
+s.push('hi')
+s.push(3)
+s.push('how')
+
+print(s.is_empty())  # False
+
+# Traverse stack
+s.traverse()  # Output: how 3 hi 2 
+
+# Peek top element
+print(s.peek())  # Output: 'how'
+
+# Pop top element
+print(s.pop())  # Output: 'how'
+s.traverse()    # Output: 3 hi 2 
+
+# Size of stack
+print(s.size())  # Output: 3
+
+```
+
+## 🎉 That's it!

@@ -244,6 +244,88 @@ print(L)  # []
 
 ---
 
+# Hashing with Linear Probing in Python
+
+This repository contains a beginner-friendly implementation of a **Hash Table** using **Linear Probing** collision resolution technique in Python. It demonstrates insertion, retrieval, and collision handling through open addressing.
+
+---
+
+## 📂 Contents
+
+- `hashing_linear_probing.ipynb` – Implementation of a dictionary (hash table) with linear probing.
+
+---
+
+## Dictionary Class Overview
+
+The `Dictionary` class maintains two arrays internally:
+- `slots`: stores keys
+- `data`: stores corresponding values
+
+It supports:
+- Insertion (`put`)
+- Retrieval (`get`)
+- Collision handling via linear probing (`rehash`)
+
+---
+
+## Code Implementation
+
+```python
+class Dictionary:
+    def __init__(self, size):
+        self.size = size
+        self.slots = [None] * self.size  # Array to hold keys
+        self.data = [None] * self.size   # Array to hold values
+
+    def put(self, key, value):
+        hash_value = self.hash_function(key)
+        if self.slots[hash_value] is None:
+            self.slots[hash_value] = key
+            self.data[hash_value] = value
+        else:
+            if self.slots[hash_value] == key:
+                self.data[hash_value] = value  # Update existing key
+            else:
+                new_hash = self.rehash(hash_value)
+                while self.slots[new_hash] is not None and self.slots[new_hash] != key:
+                    new_hash = self.rehash(new_hash)
+                if self.slots[new_hash] is None:
+                    self.slots[new_hash] = key
+                    self.data[new_hash] = value
+                else:
+                    self.data[new_hash] = value  # Update existing key
+
+    def get(self, key):
+        start_slot = self.hash_function(key)
+        position = start_slot
+        while self.slots[position] is not None:
+            if self.slots[position] == key:
+                return self.data[position]
+            position = self.rehash(position)
+            if position == start_slot:
+                return "Not Found"
+        return "Not Found"
+
+    def __getitem__(self, key):
+        return self.get(key)
+
+    def __setitem__(self, key, value):
+        self.put(key, value)
+
+    def rehash(self, old_hash):
+        return (old_hash + 1) % self.size
+
+    def hash_function(self, key):
+        return abs(hash(key)) % self.size
+
+    def __str__(self):
+        result = []
+        for i in range(self.size):
+            if self.slots[i] is not None:
+                result.append(f"{self.slots[i]} : {self.data[i]}")
+        return " ".join(result)
+
 ## 🎉 That's it!
 
 Thanks for checking out this repository! Feel free to explore, modify, and experiment with the notebooks. Happy coding and data structuring!

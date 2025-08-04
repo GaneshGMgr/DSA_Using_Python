@@ -724,6 +724,69 @@ q.traverse()  # Output: 5 7 8
 
 ```
 
+# Searching and Sorting Algorithms Notebook
+
+This notebook demonstrates several fundamental searching and sorting algorithms in Python, ranging from basic linear search to advanced sorting techniques like Quick Sort and Merge Sort. Each algorithm is explained with code and example usage.
+
+---
+
+## Searching Algorithms
+
+### 1. Linear Search
+A simple search that checks every element until the target is found or the list ends.  
+**Time Complexity:** O(N)  
+No sorting required.
+
+### 2. Binary Search
+Efficient search for sorted arrays that divides the search space in half each step.  
+**Time Complexity:** O(log N)  
+Requires the array to be sorted.
+
+### 3. Check if Array is Sorted
+Helper function to verify if an array is sorted in ascending order.
+
+---
+
+## Sorting Algorithms
+
+### 4. Monkey Sort (Bogo Sort)
+Randomly shuffles the array until it is sorted. Highly inefficient; used mostly for educational purposes.
+
+### 5. Sleep Sort
+A quirky sorting method that uses timed delays proportional to the values.
+
+### 6. Bubble Sort
+Repeatedly swaps adjacent elements if they are in the wrong order.  
+**Time Complexity:** O(N²) (worst and average case)
+
+### 7. Selection Sort
+Selects the minimum element from the unsorted part and swaps it with the beginning.  
+**Time Complexity:** O(N²)
+
+### 8. Merge Sort
+Divides the array into halves, recursively sorts them, and merges the sorted halves.  
+**Time Complexity:** O(N log N)  
+**Space Complexity:** O(N)
+
+### 9. Quick Sort
+Chooses a pivot and partitions the array into elements less than and greater than the pivot, then sorts recursively.  
+**Time Complexity:** O(N log N) on average  
+**Space Complexity:** O(log N)
+
+---
+## Example Usage Snippet (Linear Search)
+
+```python
+def linear_search(arr, item):
+    for i in range(len(arr)):
+        if arr[i] == item:
+            return i
+    return -1
+
+arr = [12, 34, 56, 1, 67, 100, 47, 99]
+print(linear_search(arr, 67))  # Output: 4
+
+```
 ## 🎉 That's it!
 
 Thanks for checking out this repository! Feel free to explore, modify, and experiment with the notebooks. Happy coding and data structuring!

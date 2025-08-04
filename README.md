@@ -21,44 +21,73 @@ This repository contains clean, beginner-friendly implementations of core **Data
 
 # 🔗 Linked List in Python (Jupyter Notebook)
 
-This notebook provides a complete walkthrough of **Linked List** implementation in Python from scratch — without using built-in data structures like `list` for core logic.
-
-It’s great for beginners who want to understand how Linked Lists work internally, node-by-node, pointer-by-pointer.
+This notebook provides a full implementation of a **Singly Linked List** from scratch in Python, without relying on built-in data structures for internal logic. It’s designed to be educational, beginner-friendly, and hands-on.
 
 ---
 
-## 💡 Concepts Covered
+## 🧱 Node Structure
 
-### ✅ 1. Node Structure
-A `Node` class that stores:
-- Data
-- Pointer to the next node
+Each node contains:
+- `data`: The actual value
+- `next`: A pointer to the next node in the list
 
-### ✅ 2. LinkedList Class with Core Operations
+```python
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+```
 
-#### Basic Setup
-- `__init__()` → Initializes empty list
-- `__len__()` → Number of nodes
-- `__str__()` → Returns the LL as a string (e.g., `1->2->3`)
+---
 
-#### Insertion
-- `insert_head(value)` → Insert at the beginning
-- `append(value)` → Insert at the end
-- `insert_after(after_value, value)` → Insert in the middle
+## 🧩 LinkedList Class with Core Operations
 
-#### Deletion
-- `delete_head()` → Remove from the beginning
-- `pop()` → Remove from the end
-- `remove(value)` → Remove by value
-- `delete_by_index(index)` → Remove by position
+### 🔧 Basic Setup
 
-#### Searching
-- `search(value)` → Search by value
-- `__getitem__(index)` → Search by index (like `LL[2]`)
+| Method         | Description                            |
+|----------------|----------------------------------------|
+| `__init__()`   | Initializes an empty list              |
+| `__len__()`    | Returns the number of nodes            |
+| `__str__()`    | Returns the linked list as a string    |
 
-#### Utilities
-- `traverse()` → Print all elements
-- `clear()` → Empty the entire list
+---
+
+### ➕ Insertion Methods
+
+| Method                        | Description                        |
+|-------------------------------|------------------------------------|
+| `insert_head(value)`          | Insert at the beginning            |
+| `append(value)`               | Insert at the end                  |
+| `insert_after(after_value, value)` | Insert after a specified node     |
+
+---
+
+### ➖ Deletion Methods
+
+| Method              | Description                     |
+|---------------------|---------------------------------|
+| `delete_head()`     | Remove from the beginning       |
+| `pop()`             | Remove from the end             |
+| `remove(value)`     | Remove a node by value          |
+| `delete_by_index(index)` | Remove a node at a position |
+
+---
+
+### 🔍 Searching Methods
+
+| Method             | Description                        |
+|--------------------|------------------------------------|
+| `search(value)`    | Returns index of the value         |
+| `__getitem__(index)` | Access by index (like `LL[2]`)     |
+
+---
+
+### 🧰 Utility Methods
+
+| Method       | Description                 |
+|--------------|-----------------------------|
+| `traverse()` | Prints all elements         |
+| `clear()`    | Empties the entire list     |
 
 ---
 
@@ -90,3 +119,26 @@ print(L.search(3))  # Find index of value
 # Utility
 len(L)
 L.clear()
+```
+
+---
+
+## 🧠 Ideal For
+
+- Beginners learning data structures  
+- Practicing linked list logic without built-in types  
+- Jupyter notebook-based visual exploration
+
+---
+
+## ✅ Dependencies
+
+No external libraries needed — works in plain Python 3.
+
+---
+
+## 📁 File
+
+- `Linked_List.ipynb` → Complete implementation with explanations and usage examples
+
+---

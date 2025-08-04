@@ -580,6 +580,150 @@ print(len(D1))              # Output: 10
 
 ```
 
+# Queue Implementation Using Linked List in Python
+
+This project implements a **Queue** data structure using a **linked list** approach.
+
+---
+
+## Overview
+
+- The queue is managed by two pointers:  
+  - `front` (head) — points to the front of the queue (where dequeue happens).  
+  - `rear` (tail) — points to the rear of the queue (where enqueue happens).
+- Supports standard queue operations: enqueue (insert), dequeue (delete), is_empty check, size, front item, rear item, and traversal.
+
+---
+
+## Code Implementation
+
+```python
+class Node:
+    """
+    Node class to store queue data and a pointer to the next node.
+    """
+    def __init__(self, value):
+        self.data = value
+        self.next = None
+
+class Queue:
+    """
+    Queue implemented using a linked list with front and rear pointers.
+    """
+
+    def __init__(self):
+        self.front = None  # Head of the queue
+        self.rear = None   # Tail of the queue
+
+    ################ 1. Insert operation ######################
+    def enqueue(self, value):
+        new_node = Node(value)  # Create new node
+
+        if self.front is None:
+            # If queue is empty, front and rear both point to new node
+            self.front = new_node
+            self.rear = new_node
+        else:
+            # Queue not empty, append new_node at rear and update rear pointer
+            self.rear.next = new_node
+            self.rear = new_node
+
+    ################ 2. Delete operation ######################
+    def dequeue(self):
+        if self.front is None:
+            # Queue empty
+            return "Queue empty"
+        else:
+            # Move front pointer to next node, removing current front
+            self.front = self.front.next
+            # If queue becomes empty, update rear as well
+            if self.front is None:
+                self.rear = None
+
+    def is_empty(self):
+        """
+        Check if the queue is empty.
+        Returns True if empty, False otherwise.
+        """
+        return self.front is None
+
+    def size(self):
+        """
+        Returns the number of elements in the queue.
+        """
+        temp = self.front
+        counter = 0
+        while temp is not None:
+            counter += 1
+            temp = temp.next
+        return counter
+
+    def front_item(self):
+        """
+        Returns the value at the front of the queue without removing it.
+        """
+        if not self.is_empty():
+            return self.front.data
+        else:
+            return "Empty queue"
+
+    def rear_item(self):
+        """
+        Returns the value at the rear of the queue without removing it.
+        """
+        if not self.is_empty():
+            return self.rear.data
+        else:
+            return "Empty queue"
+
+    ################ 3. Traverse operation ######################
+    def traverse(self):
+        """
+        Prints the elements in the queue from front to rear.
+        """
+        temp = self.front
+        while temp is not None:
+            print(temp.data, end=' ')
+            temp = temp.next
+        print()  # for newline after traversal
+
+# Example usage:
+q = Queue()
+
+# 1. Insert operations (enqueue)
+q.enqueue(3)
+q.enqueue(4)
+q.enqueue(5)
+q.enqueue(7)
+
+# 3. Traverse operation
+q.traverse()  # Output: 3 4 5 7
+
+# Check size
+print(q.size())  # Output: 4
+
+# 2. Delete operation (dequeue)
+q.dequeue()
+q.traverse()  # Output: 4 5 7
+
+# More enqueue
+q.enqueue(8)
+
+# Check if queue is empty
+print(q.is_empty())  # Output: False
+
+q.traverse()  # Output: 4 5 7 8
+
+# Front and Rear items
+print(q.front_item())  # Output: 4
+print(q.rear_item())   # Output: 8
+
+# Dequeue more elements
+q.dequeue()
+q.traverse()  # Output: 5 7 8
+
+```
+
 ## 🎉 That's it!
 
 Thanks for checking out this repository! Feel free to explore, modify, and experiment with the notebooks. Happy coding and data structuring!
